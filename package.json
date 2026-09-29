@@ -1,0 +1,56 @@
+{
+  "name": "obix-compiler-parser",
+  "version": "0.5.0",
+  "description": "The .obix VueTS parser: the OFFICIAL Vue SFC parser behind parseObix / parseVueReference, reporting OBIX diagnostics with stable codes and positions. Phase 1 of the VueTS compiler recovery (docs/recovery/vuets-compiler.md). Not the Level-0 parser: that one is obix-compiler-legacy-parser.",
+  "license": "MIT",
+  "author": "Nnamdi Michael Okpala <okpalan@protonmail.com>",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "dependencies": {
+    "obix-compiler-diagnostics": "0.5.0",
+    "@vue/compiler-core": "3.5.43",
+    "@vue/compiler-sfc": "3.5.43"
+  },
+  "keywords": [
+    "obix",
+    "compiler",
+    "vue",
+    "sfc",
+    "parser"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obinexus/obix-compiler-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/obinexus/obix-compiler-parser/issues"
+  },
+  "homepage": "https://github.com/obinexus/obix-compiler-parser#readme"
+}

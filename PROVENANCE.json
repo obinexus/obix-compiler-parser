@@ -1,0 +1,34 @@
+{
+  "package": "obix-compiler-parser",
+  "dir": "compiler/obix-compiler-parser",
+  "importedBy": "authored in the recovery (no importer entry: there is no upstream package of this name)",
+  "stage": "vuets-phase-1 authored",
+  "sources": [
+    {
+      "label": "authored-in-recovery",
+      "note": "parseObix / parseVueReference over the official Vue SFC parser, OBIX diagnostics with stable codes, tests and README. No Vue source was copied or forked: @vue/compiler-sfc and @vue/compiler-core 3.5.43 are dependencies (pinned by obix-vue.json)."
+    }
+  ],
+  "transforms": [],
+  "notes": [
+    "The name @obinexusltd/obix-compiler-parser was held by the Level-0 parser until the VueTS recovery; that package is now @obinexusltd/obix-compiler-legacy-parser (D-46).",
+    "The corpus is tests/corpus/vuets (pairs of byte-identical .vue / .obix fixtures)."
+  ],
+  "localFixes": [],
+  "renamedFrom": [
+    {
+      "name": "@obinexusltd/obix-compiler-parser",
+      "dir": "compiler/obix-compiler-parser",
+      "stage": "unscoped-naming",
+      "why": "D-102 (2026-09-29): OBIX packages are named without an npm scope — previous name @obinexusltd/obix-compiler-parser, current name obix-compiler-parser (docs/recovery/unscoped-migration.md); the directory, version and exports are unchanged"
+    }
+  ],
+  "export": {
+    "from": "https://github.com/obinexusmk2/obix-monorepo",
+    "branch": "recovery/obix-api-preserving-rebuild",
+    "commit": "69cafc94910c1add865a520877617ac307668875",
+    "directory": "compiler/obix-compiler-parser",
+    "exportedBy": "scripts/release/export-repos.mjs",
+    "note": "a clean initial commit of this package; the monorepo history is not imported (D-103). Local machine paths in this record are replaced by <local workspace>."
+  }
+}
