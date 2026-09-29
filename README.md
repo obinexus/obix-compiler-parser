@@ -88,8 +88,6 @@ Depends on `@vue/compiler-sfc` (the parser) and `@vue/compiler-core` (its error-
 npm install obix-compiler-parser
 ```
 
-> **Not yet on npm.** The OBIX packages are prepared for publication and are published only on the owner's authorisation; until then this is the command the published package will answer to.
-
 ## API surface
 
 - `obix-compiler-parser` — 5 value exports: `OBIX_SFC_CODES`, `OBIX_SFC_UPSTREAM_CODES`, `parseObix`, `parseVueReference`, `vueCompilerVersion`
@@ -109,10 +107,11 @@ The architecture of OBIX — the package families and which packages are public 
 
 ## Testing
 
-- No test file ships in the npm package: this package's tests use the monorepo's shared harness (listed below), so they are in the repository only.
-- Run them with `npm test` (`node --test "test/*.test.mjs"`) in the OBIX monorepo, which provides the test tooling (Node's test runner, TypeScript).
-- 1 test file is in the repository but not in the npm package, because it uses the monorepo's shared test harness, oracles or fixtures:
+- 1 test file ships in the npm package (`test/`): the evidence of the package's contract, published so that its verification can be inspected — not runtime code (no entry point reaches it).
+- **Standalone**: none.
+- **Need the OBIX development / test harness**: 1 — it reads the OBIX monorepo's shared harness, oracles or fixtures, so it does **not** run from an npm install or from this package's repository alone; it is shipped for inspection and provenance:
   - `test/parse.test.mjs` — its code reads a monorepo location (path.join(PACKAGE, '..', '..', 'tests', 'corpus…)
+- Run them with `npm test` (`node --test "test/*.test.mjs"`) in the OBIX monorepo, which provides the test tooling (Node's test runner, TypeScript) and the harness.
 
 ## Documentation
 
@@ -123,7 +122,7 @@ The architecture of OBIX — the package families and which packages are public 
 
 - https://github.com/obinexus/obix-compiler-parser — `git@github.com:obinexus/obix-compiler-parser.git`
 - Issues: https://github.com/obinexus/obix-compiler-parser/issues
-- The repository is a clean export of the package from the OBIX monorepo; its lineage (the monorepo commit it was exported from, the sources it was recovered from, earlier names) is in `PROVENANCE.json`.
+- The repository is a clean export of the package from the OBIX monorepo. Its lineage — the sources it was recovered from and its earlier names — is `PROVENANCE.json`, shipped in this package; the repository's copy also records the monorepo commit it was exported from.
 
 ## License
 
